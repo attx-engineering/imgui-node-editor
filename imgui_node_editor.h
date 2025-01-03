@@ -486,6 +486,8 @@ struct SafePointerType
     template <typename T = void> T* AsPointer() const { return reinterpret_cast<T*>(this->Get()); }
 
     explicit operator bool() const { return *this != Invalid; }
+    explicit operator int() const { return static_cast<int>(this->Get()); } // Added conversion to int
+    explicit operator long() const { return static_cast<long>(this->Get()); } // Added conversion to long
 };
 
 template <typename Tag>
