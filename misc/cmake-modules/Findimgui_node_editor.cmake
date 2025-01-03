@@ -25,6 +25,17 @@ set(_imgui_node_editor_Sources
     ${IMGUI_NODE_EDITOR_ROOT_DIR}/imgui_node_editor_internal.inl
     ${IMGUI_NODE_EDITOR_ROOT_DIR}/imgui_node_editor.cpp
     ${IMGUI_NODE_EDITOR_ROOT_DIR}/imgui_node_editor.h
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot_demo.cpp
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot_internal.h
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot_items.cpp
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot.cpp
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot.h
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot3d_demo.cpp
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot3d_internal.h
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot3d_items.cpp
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot3d_meshes.cpp
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot3d.cpp
+    ${IMGUI_NODE_EDITOR_ROOT_DIR}/implot3d.h
     ${IMGUI_NODE_EDITOR_ROOT_DIR}/misc/imgui_node_editor.natvis
 )
 
