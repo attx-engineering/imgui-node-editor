@@ -18,7 +18,7 @@
 // of imgui which is necessary for implot, and the older version which is used by the imgui node editor by default. 
 // Essentually, they changed the default value ImTextureID from void* (old) to ImU64 and we need to set it correctly for everything to
 // work. That is all Alex knows -- see lines 251-255 in imgui.h for their notes.
-#define ImTextureID void*
+#define ImTextureID ImU64
 
 //---- Define assertion handler. Defaults to calling assert().
 // If your macro uses multiple statements, make sandure is enclosed in a 'do { .. } while (0)' block so it can be used as a single statement.
