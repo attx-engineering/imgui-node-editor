@@ -3,8 +3,11 @@
 // Those changes would need to be pushed into nothings/stb:
 // - Fix in stb_textedit_discard_redo (see https://github.com/nothings/stb/issues/321)
 // - Fix in stb_textedit_find_charpos to handle last line (see https://github.com/ocornut/imgui/issues/6000 + #6783)
+<<<<<<< Updated upstream
 // - Added name to struct or it may be forward declared in our code.
 // - Added UTF-8 support (see https://github.com/nothings/stb/issues/188 + https://github.com/ocornut/imgui/pull/7925)
+=======
+>>>>>>> Stashed changes
 // Grep for [DEAR IMGUI] to find the changes.
 // - Also renamed macros used or defined outside of IMSTB_TEXTEDIT_IMPLEMENTATION block from STB_TEXTEDIT_* to IMSTB_TEXTEDIT_*
 
@@ -773,8 +776,32 @@ retry:
 #ifdef STB_TEXTEDIT_KEYTOTEXT
          int c = STB_TEXTEDIT_KEYTOTEXT(key);
          if (c > 0) {
+<<<<<<< Updated upstream
             IMSTB_TEXTEDIT_CHARTYPE ch = (IMSTB_TEXTEDIT_CHARTYPE)c;
             stb_textedit_text(str, state, &ch, 1);
+=======
+            IMSTB_TEXTEDIT_CHARTYPE ch = (IMSTB_TEXTEDIT_CHARTYPE) c;
+
+            // can't add newline in single-line mode
+            if (c == '\n' && state->single_line)
+               break;
+
+            if (state->insert_mode && !STB_TEXT_HAS_SELECTION(state) && state->cursor < STB_TEXTEDIT_STRINGLEN(str)) {
+               stb_text_makeundo_replace(str, state, state->cursor, 1, 1);
+               STB_TEXTEDIT_DELETECHARS(str, state->cursor, 1);
+               if (STB_TEXTEDIT_INSERTCHARS(str, state->cursor, &ch, 1)) {
+                  ++state->cursor;
+                  state->has_preferred_x = 0;
+               }
+            } else {
+               stb_textedit_delete_selection(str,state); // implicitly clamps
+               if (STB_TEXTEDIT_INSERTCHARS(str, state->cursor, &ch, 1)) {
+                  stb_text_makeundo_insert(state, state->cursor, 1);
+                  ++state->cursor;
+                  state->has_preferred_x = 0;
+               }
+            }
+>>>>>>> Stashed changes
          }
 #endif
          break;
