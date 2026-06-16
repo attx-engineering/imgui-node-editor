@@ -3,7 +3,7 @@ project(imgui-node-editor)
 
 set(CMAKE_CXX_STANDARD 14) 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_CXX_FLAGS "-g -O3 -fPIC")
+set(CMAKE_CXX_FLAGS "-g -O3 -Wno-nontrivial-memcall -fPIC")
 
 # Set our base directory
 get_filename_component(IMGUI_NODE_EDITOR_ROOT_DIR ${PROJECT_SOURCE_DIR} ABSOLUTE CACHE)
